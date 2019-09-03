@@ -1,5 +1,25 @@
 package gobin
 
+// Appends n zero-bytes at the end of data and returns the new slice.
+func PutBlank(n int, data []byte) []byte {
+    return append(data, make([]byte, n))
+}
+
+// Appends the uint8 value to the end of data and returns the new slice
+func PutUint8(v uint8, data []byte) []byte {
+    return append(data, byte(v))
+}
+
+// Appends the little-endian uint16 value to the end of data and returns the new slice
+func PutLUint16(v uint16, data []byte) []byte {
+    return append(data, byte(v), byte(v >> 8))
+}
+
+// Appends the big-endian uint16 value to the end of data and returns the new slice
+func PutBUint16(v uint16, data []byte) []byte {
+    return append(data, byte(v >> 8), byte(v))
+}
+
 // AGetUint8 returns the uint8 value from the start of data and the remaining bytes
 func AGetUint8(data []byte) (result uint8, tail []byte) {
     return GetUint8(data), data[1:]
