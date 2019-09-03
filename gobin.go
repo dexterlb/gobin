@@ -2,7 +2,7 @@ package gobin
 
 // Appends n zero-bytes at the end of data and returns the new slice.
 func PutBlank(n int, data []byte) []byte {
-    return append(data, make([]byte, n))
+    return append(data, make([]byte, n)...)
 }
 
 // Appends the uint8 value to the end of data and returns the new slice
