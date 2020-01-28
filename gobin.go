@@ -65,3 +65,12 @@ func GetString(data []byte, length int) string {
 func GetFlag(data []byte, index uint8) bool {
     return ((data[0] >> index) & 0x1) == 0x1
 }
+
+// SetFlag sets the bit at the given bit offset in the first byte of given data of the first byte of given data
+func SetFlag(data []byte, index uint8, value bool) {
+    if value {
+        data[0] |= 1 << index
+    } else {
+        data[0] &= ^(1 << index)
+    }
+}
