@@ -32,7 +32,7 @@ func GetUint8(data []byte) uint8 {
 
 // AGetLUint32 returns the little-endian uint32 value from the start of data and the remaining bytes
 func AGetLUint32(data []byte) (result uint32, tail []byte) {
-	return GetLUint32(data), data[2:]
+	return GetLUint32(data), data[4:]
 }
 
 // GetLUint32 returns the little-endian uint32 value from the start of data
@@ -42,7 +42,7 @@ func GetLUint32(data []byte) uint32 {
 
 // AGetBUint32 returns the big-endian uint32 value from the start of data and the remaining bytes
 func AGetBUint32(data []byte) (result uint32, tail []byte) {
-	return GetBUint32(data), data[2:]
+	return GetBUint32(data), data[4:]
 }
 
 // GetBUint32 returns the big-endian uint32 value from the start of data
