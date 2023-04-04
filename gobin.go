@@ -78,7 +78,15 @@ func AGetString(data []byte, length int) (result string, tail []byte) {
 
 // GetString returns the UTF-8 encoded string with given length from the start of data
 func GetString(data []byte, length int) string {
-	return string(data[0:length])
+	i := 0
+	for i < length {
+		if data[i] == 0 {
+			break
+		}
+		i++
+	}
+
+	return string(data[0:i])
 }
 
 // GetFlag returns the bit at the given bit offset in the first byte of given data
